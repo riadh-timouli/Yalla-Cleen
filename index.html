@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yalla Clean - غسيل سيارات متنقل يصلك أينما كنت</title>
+    <meta name="description" content="Yalla Clean تقدم خدمة غسيل سيارات متنقلة في الجزائر. احجز الآن واستمتع بسيارة نظيفة ولامعة عند باب بيتك أو عملك.">
+    <meta name="keywords" content="غسيل سيارات, متنقل, الجزائر, Yalla Clean, تنظيف سيارات, خدمة منزلية">
+    
+    <!-- Google Fonts (Cairo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (for icons) - Updated to a newer version for more icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon (ضع أيقونة موقعك هنا) -->
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
+</head>
+<body class="light-mode"> <!-- Default mode, will be controlled by JS -->
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Yalla Clean <i class="fas fa-car-side"></i></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero"><i class="fas fa-home nav-icon"></i>الرئيسية</a></li>
+                    <li><a href="services.html"><i class="fas fa-concierge-bell nav-icon"></i>خدماتنا</a></li>
+                    <li><a href="#how-it-works"><i class="fas fa-cogs nav-icon"></i>كيف نعمل</a></li>
+                    <li><a href="#testimonials"><i class="fas fa-comments nav-icon"></i>آراء العملاء</a></li>
+                    <li><a href="contact.html"><i class="fas fa-phone-alt nav-icon"></i>اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="تبديل الوضع إلى الليلي">
+                    <i class="fas fa-moon"></i> <!-- Default icon for light mode -->
+                </button>
+                <a href="booking.html" class="btn btn-primary btn-book-header">احجز الآن</a>
+            </div>
+            <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1><span class="brand-name">Yalla Clean</span><br>غسيل سيارات متنقل يصلك أينما كنت!</h1>
+            <p>استمتع بسيارة نظيفة ولامعة بدون مغادرة منزلك أو مكتبك. خدمة احترافية وسريعة في الجزائر.</p>
+            <a href="booking.html" class="btn btn-primary btn-lg">احجز الآن فوراً</a>
+        </div>
+        <!-- يمكنك إضافة صورة خلفية هنا عبر CSS -->
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="container section-padding">
+        <h2 class="section-title">غسيل سيارتك في 3 خطوات بسيطة</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-calendar-check fa-3x"></i></div> <!-- Changed icon -->
+                <h3>1. احجز موعدك</h3>
+                <p>اختر الباقة المناسبة، حدد موقعك والوقت الذي يناسبك عبر موقعنا.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-truck-moving fa-3x"></i></div> <!-- Changed icon -->
+                <h3>2. نصلك أينما كنت</h3>
+                <p>فريقنا المجهز يصل إليك في الموعد المحدد بالأدوات والمواد اللازمة.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-car-on fa-3x"></i></div> <!-- Changed icon -->
+                <h3>3. استمتع بالنظافة</h3>
+                <p>سيارتك نظيفة وجاهزة للانطلاق! خدمة عالية الجودة تضمن رضاك.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us / Features Section -->
+    <section id="features" class="bg-light section-padding">
+        <div class="container">
+            <h2 class="section-title">لماذا تختار Yalla Clean؟</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-clock fa-2x feature-icon"></i>
+                    <h3>توفير الوقت والجهد</h3>
+                    <p>لا مزيد من الانتظار في طوابير المغاسل التقليدية.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-map-marked-alt fa-2x feature-icon"></i>
+                    <h3>خدمة متنقلة</h3>
+                    <p>نصلك في منزلك، عملك، أو أي مكان تختاره.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-hand-sparkles fa-2x feature-icon"></i>
+                    <h3>جودة عالية</h3>
+                    <p>نستخدم أفضل مواد التنظيف الصديقة للبيئة والآمنة على سيارتك.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-tags fa-2x feature-icon"></i> <!-- Changed icon from dollar -->
+                    <h3>أسعار تنافسية (دج)</h3>
+                    <p>نقدم أفضل قيمة مقابل سعر، مع شفافية في الأسعار بالدينار الجزائري.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery/Showcase Section -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">شاهد نتائجنا المذهلة</h2>
+            <div class="gallery-grid">
+                <!-- استخدم صور حقيقية لسيارات نظيفة -->
+                <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="سيارة سوداء نظيفة">
+                <img src="assets/images/picture1.jpg" alt="داخلية سيارة نظيفة">
+                <img src="assets/images/washing-car-washing-black-car-car-wash-clean-car.jpg" alt="غسيل إطارات سيارة">
+                <img src="assets/images/picture3.jpg" alt="سيارة حمراء لامعة">
+
+                <!-- استخدم صور حقيقية لسيارات نظيفة -->
+                <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="سيارة سوداء نظيفة">
+                <img src="assets/images/picture1.jpg" alt="داخلية سيارة نظيفة">
+                <img src="assets/images/washing-car-washing-black-car-car-wash-clean-car.jpg" alt="غسيل إطارات سيارة">
+                <img src="assets/images/picture3.jpg" alt="سيارة حمراء لامعة">
+           
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="bg-light section-padding">
+        <div class="container">
+            <h2 class="section-title">ماذا يقول عملاؤنا السعداء؟</h2>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <p>"خدمة ممتازة وسريعة! السيارة عادت كأنها جديدة. أنصح بشدة بـ Yalla Clean."</p>
+                    <h4>- أمين ب.، الجزائر العاصمة</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"أخيراً خدمة غسيل متنقلة محترفة في منطقتنا. فريق عمل ودود والنتيجة رائعة. شكراً لكم!"</p>
+                    <h4>- فاطمة الزهراء ق.، وهران</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"كنت مترددًا في البداية، لكن التجربة فاقت توقعاتي. السعر مناسب والجودة عالية."</p>
+                    <h4>- محمد س.، قسنطينة</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="section-padding">
+        <div class="container text-center">
+            <h2>هل سيارتك جاهزة لتجربة Yalla Clean؟</h2>
+            <p>لا تتردد! احجز خدمتك الآن واستمتع بسيارة تلمع بالنظافة والجمال.</p>
+            <a href="booking.html" class="btn btn-primary btn-lg">احجز غسيلك الآن</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Yalla Clean <i class="fas fa-car-side"></i></h3>
+                    <p>خدمة غسيل سيارات متنقلة ومحترفة في الجزائر. راحتك هي أولويتنا.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-info-circle nav-icon"></i>من نحن</a></li>
+                        <li><a href="services.html"><i class="fas fa-concierge-bell nav-icon"></i>خدماتنا</a></li>
+                        <li><a href="faq.html"><i class="fas fa-question-circle nav-icon"></i>الأسئلة الشائعة</a></li>
+                        <li><a href="#" id="openPrivacyPopupFooter"><i class="fas fa-shield-alt nav-icon"></i>سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>تواصل معنا</h4>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+213772035502" class="contact-link">+213 772 035 502</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:samibenlaalmi@gmail.com" class="contact-link">samibenlaalmi@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> نخدم مختلف مناطق الجزائر</p>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">© <span id="currentYear"></span> Yalla Clean. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    
+    
+    <!-- ... (باقي محتوى الصفحة) ... -->
+
+    <!-- Privacy Policy Popup -->
+    <div id="privacyPopup" class="popup-overlay" style="display: none;"> <!-- ابدأها مخفية -->
+        <div class="popup-content">
+            <button id="closePrivacyPopup" class="popup-close-btn" aria-label="إغلاق">×</button>
+            <h2>سياسة الخصوصية وشروط الخدمة لـ Yalla Clean</h2>
+            
+            <div id="privacyTextContainer" class="privacy-text">
+                <p><strong>مقدمة:</strong></p>
+                <p>مرحباً بك في Yalla Clean! نحن نقدر ثقتك بنا عند تزويدنا بمعلوماتك الشخصية. تهدف سياسة الخصوصية هذه إلى شرح كيفية جمعنا واستخدامنا وحمايتنا لمعلوماتك الشخصية عند استخدامك لخدماتنا وموقعنا الإلكتروني.</p>
+
+                <p><strong>1. المعلومات التي نجمعها:</strong></p>
+                <p>عند استخدامك لخدماتنا، قد نجمع الأنواع التالية من المعلومات:</p>
+                <ul>
+                    <li><strong>المعلومات الشخصية:</strong> الاسم، رقم الهاتف، عنوان البريد الإلكتروني، عنوان تقديم الخدمة (بما في ذلك إحداثيات الموقع إذا تم توفيرها).</li>
+                    <li><strong>معلومات السيارة:</strong> نوع السيارة، موديلها (إذا لزم الأمر لتقدير الخدمة).</li>
+                    <li><strong>معلومات الحجز:</strong> تفاصيل الخدمات المطلوبة، تاريخ ووقت الحجز، أي ملاحظات خاصة.</li>
+                    <li><strong>معلومات تقنية:</strong> عنوان IP، نوع المتصفح، نظام التشغيل، الصفحات التي تزورها على موقعنا (لأغراض التحليل وتحسين الخدمة).</li>
+                </ul>
+
+                <p><strong>2. كيف نستخدم معلوماتك:</strong></p>
+                <p>نستخدم المعلومات التي نجمعها للأغراض التالية:</p>
+                <ul>
+                    <li>لتقديم وتخصيص خدماتنا لك، بما في ذلك تحديد المواعيد والوصول إلى موقعك.</li>
+                    <li>لمعالجة حجوزاتك والتواصل معك بشأنها (تأكيدات، تذكيرات، تحديثات).</li>
+                    <li>لتحسين خدماتنا وموقعنا الإلكتروني وتجربة المستخدم.</li>
+                    <li>للرد على استفساراتك وتقديم دعم العملاء.</li>
+                    <li>لإرسال عروض ترويجية أو تحديثات حول خدماتنا (بموافقتك المسبقة عند الحاجة، مع إمكانية إلغاء الاشتراك).</li>
+                    <li>للامتثال للمتطلبات القانونية والتنظيمية.</li>
+                </ul>
+                
+                <p><strong>3. مشاركة معلوماتك:</strong></p>
+                <p>نحن لا نبيع أو نؤجر معلوماتك الشخصية لأطراف ثالثة. قد نشارك معلوماتك في الحالات المحدودة التالية:</p>
+                <ul>
+                    <li>مع مزودي الخدمة الذين يساعدوننا في تشغيل أعمالنا (مثل معالجة الدفعات إذا تم تفعيلها، أو خدمات الخرائط)، بشرط التزامهم بحماية معلوماتك.</li>
+                    <li>إذا طُلب منا ذلك بموجب القانون أو أمر قضائي.</li>
+                    <li>لحماية حقوقنا أو ممتلكاتنا أو سلامة Yalla Clean أو عملائنا أو الجمهور.</li>
+                </ul>
+
+                <p><strong>4. أمن المعلومات:</strong></p>
+                <p>نتخذ تدابير أمنية معقولة لحماية معلوماتك الشخصية من الوصول أو الاستخدام أو الكشف غير المصرح به. ومع ذلك، لا توجد طريقة نقل عبر الإنترنت أو تخزين إلكتروني آمنة بنسبة 100%.</p>
+
+                <p><strong>5. ملفات تعريف الارتباط (Cookies):</strong></p>
+                <p>قد نستخدم ملفات تعريف الارتباط وتقنيات تتبع مشابهة لتحسين تجربتك على موقعنا وجمع معلومات حول كيفية استخدامه. يمكنك التحكم في ملفات تعريف الارتباط من خلال إعدادات متصفحك.</p>
+
+                <p><strong>6. حقوقك:</strong></p>
+                <p>لديك الحق في الوصول إلى معلوماتك الشخصية التي نحتفظ بها وتصحيحها أو طلب حذفها (مع مراعاة أي التزامات قانونية للاحتفاظ بالبيانات). يمكنك الاتصال بنا لممارسة هذه الحقوق.</p>
+
+                <p><strong>7. التغييرات على سياسة الخصوصية:</strong></p>
+                <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سيتم نشر أي تغييرات على هذه الصفحة مع تاريخ سريان جديد. نشجعك على مراجعة هذه السياسة بشكل دوري.</p>
+
+                <p><strong>8. الموافقة على الشروط:</strong></p>
+                <p>باستخدامك لموقعنا وخدماتنا، فإنك توافق على جمع واستخدام معلوماتك كما هو موضح في سياسة الخصوصية هذه. إذا كنت لا توافق على هذه الشروط، يرجى عدم استخدام خدماتنا أو تزويدنا بمعلوماتك الشخصية.</p>
+                
+                <p><strong>9. معلومات إضافية للخدمة المتنقلة:</strong></p>
+                <ul>
+                    <li>نحن نلتزم بالوصول إلى الموقع المحدد من قبلك في الوقت المتفق عليه قدر الإمكان. قد تحدث تأخيرات بسبب ظروف خارجة عن إرادتنا (مثل حركة المرور الكثيفة).</li>
+                    <li>يجب توفير مساحة آمنة ومناسبة لتقديم الخدمة لسيارتك (على سبيل المثال، ليست في طريق عام مزدحم أو منطقة ممنوع الوقوف فيها).</li>
+                    <li>أنت مسؤول عن إزالة أي مقتنيات ثمينة من السيارة قبل بدء الخدمة. Yalla Clean ليست مسؤولة عن فقدان أي متعلقات شخصية.</li>
+                    <li>نحتفظ بالحق في رفض تقديم الخدمة إذا كانت السيارة في حالة غير آمنة للعمل عليها أو إذا كان الموقع غير مناسب.</li>
+                </ul>
+
+                <p><strong>10. الاتصال بنا:</strong></p>
+                <p>إذا كان لديك أي أسئلة أو استفسارات حول سياسة الخصوصية هذه أو ممارساتنا، يرجى الاتصال بنا على <a href="mailto:samibenlaalmi@gmail.com">samibenlaalmi@gmail.com</a> أو عبر الهاتف <a href="tel:+213772035502">+213 772 035 502</a>.</p>
+
+                <p><em>آخر تحديث: [أدخل تاريخ اليوم أو تاريخ آخر تحديث]</em></p>
+            </div>
+
+            <div class="popup-actions">
+                <label class="checkbox-label privacy-checkbox">
+                    <input type="checkbox" id="privacyCheckbox"> لقد قرأت ووافقت على شروط سياسة الخصوصية.
+                </label>
+                <button id="acceptPrivacyBtn" class="btn btn-primary" disabled>موافق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ... (سكريبتاتك الأخرى مثل Flatpickr, Google Maps, script.js) ... -->
+    <!-- تأكد أن script.js هو الأخير -->
+    <script src="script.js"></script>
+</body>
+</html>

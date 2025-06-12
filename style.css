@@ -1,0 +1,1880 @@
+/* === Yalla Clean - Main Stylesheet === */
+
+/* === Table of Contents ===
+1. Global Styles & Variables
+2. Utility Classes
+3. Typography
+4. Buttons
+5. Header & Navigation
+6. Hero Section
+7. How It Works Section
+8. Features Section
+9. Gallery Section
+10. Testimonials Section
+11. Call to Action (CTA) Section
+12. Footer
+13. Light & Dark Mode Styles <--- تم تعديل هذا القسم وإضافة متغيرات جديدة
+14. Animations
+15. Responsive Design      <--- تم تعديل هذا القسم لضمان وضوح القائمة في الوضع الليلي
+============================= */
+
+/* === 1. Global Styles & Variables === */
+:root {
+    --primary-color: #FF6B00; /* Vibrant Orange for Yalla Clean brand */
+    --secondary-color: #007bff; /* Contrasting Blue for accents */
+    --dark-color: #2c3e50;    /* Darker shade for text and elements */
+    --medium-dark-color: #34495e; /* Slightly lighter dark */
+    --light-color: #f8f9fa;   /* Light background for sections */
+    --text-color: #555e68;    /* Main body text color */
+    --white-color: #ffffff;
+    --border-color: #e0e0e0;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+
+    --font-family: 'Cairo', sans-serif;
+    --base-font-size: 16px; /* Base font size for rem calculations */
+
+    --container-width: 1140px;
+    --section-padding-y: 80px;
+    --section-padding-x: 20px;
+
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+
+    --box-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --box-shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.12);
+    --box-shadow-dark: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* For smooth anchor link scrolling */
+    font-size: var(--base-font-size); /* Base for rem units */
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.7;
+    /* color: var(--text-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    /* background-color: var(--white-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    direction: rtl; /* Right-to-left for Arabic */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* === 2. Utility Classes === */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--section-padding-x);
+}
+
+.section-padding {
+    padding: var(--section-padding-y) 0;
+}
+
+.bg-light {
+    background-color: var(--section-bg-light, var(--light-color)); /* Fallback to global light if specific not set by mode */
+}
+
+.bg-dark { /* This utility might need adjustment if used alongside theme switching */
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4, .bg-dark p {
+    color: var(--light-color);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color);
+}
+
+/* === 3. Typography === */
+h1, h2, h3, h4, h5, h6 {
+    /* color: var(--dark-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.2rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed) ease;
+}
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius-sm);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    /* color: var(--dark-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* === 4. Buttons === */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #e65c00;
+    border-color: #e65c00;
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-hover-mode, var(--box-shadow-medium));
+}
+
+/* ... (باقي أنماط الأزرار) ... */
+
+
+/* === 5. Header & Navigation === */
+header {
+    /* background-color: var(--white-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* box-shadow: var(--box-shadow-light); يتم التحكم به عبر body.light-mode/dark-mode */
+    transition: background-color var(--transition-speed) ease, padding var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+header.scrolled {
+    /* background-color: rgba(255, 255, 255, 0.97); يتم التحكم به عبر body.light-mode/dark-mode */
+    padding: 10px 0;
+    /* box-shadow: var(--box-shadow-medium); يتم التحكم به عبر body.light-mode/dark-mode */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color); /* الشعار يبقى بلون العلامة التجارية */
+    transition: transform var(--transition-speed) ease;
+}
+.logo:hover {
+    transform: scale(1.05);
+}
+.logo i {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+html[dir="ltr"] .logo i {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li {
+    margin-right: 30px;
+}
+html[dir="ltr"] .main-nav ul li {
+    margin-left: 30px;
+    margin-right: 0;
+}
+.main-nav ul li:last-child {
+    margin-right: 0;
+}
+html[dir="ltr"] .main-nav ul li:last-child {
+    margin-left: 0;
+}
+
+.main-nav ul li a {
+    /* color: var(--medium-dark-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+    transition: color var(--transition-speed) ease;
+    font-size: 1rem;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    color: var(--primary-color); /* لون المرور/النشاط يبقى اللون الأساسي */
+}
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 3px;
+    right: 0;
+    background: var(--primary-color);
+    transition: width var(--transition-speed) ease;
+}
+html[dir="ltr"] .main-nav ul li a::after {
+    left: 0;
+    right: auto;
+}
+.main-nav ul li a:hover::after,
+.main-nav ul li a.active::after {
+    width: 100%;
+    left: 0;
+    right: auto;
+}
+html[dir="ltr"] .main-nav ul li a:hover::after,
+html[dir="ltr"] .main-nav ul li a.active::after {
+    right: 0;
+    left: auto;
+}
+
+.btn-book-header {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    /* color: var(--dark-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.nav-icon { /* أنماط أيقونات القائمة */
+    margin-left: 8px; 
+    font-size: 0.9em; 
+    opacity: 0.8;
+    vertical-align: middle;
+}
+html[dir="ltr"] .nav-icon {
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+.header-actions { /* حاوية زر الوضع وزر الحجز */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.theme-toggle-btn { /* زر تبديل الوضع */
+    background: none;
+    /* border: 1px solid var(--border-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    /* color: var(--text-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle-btn:hover {
+    /* background-color: var(--light-color); يتم التحكم به عبر body.light-mode/dark-mode */
+}
+.theme-toggle-btn i {
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* === 6. Hero Section ... 12. Footer === */
+/* (باقي أنماط الأقسام كما هي، مع افتراض أن الألوان يتم التحكم بها بشكل صحيح عبر متغيرات الوضع) */
+#hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://images.unsplash.com/photo-1506521781263-d5449e8fea55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: var(--white-color); /* لون النص في الهيرو غالبًا ما يكون أبيض */
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px var(--section-padding-x) 60px; 
+    position: relative;
+}
+
+.hero-content {
+    max-width: 750px;
+    animation: fadeInDown 1s ease-out 0.2s; 
+    animation-fill-mode: both; 
+}
+.hero-content .brand-name {
+    color: var(--primary-color);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.5em; 
+}
+.hero-content h1 {
+    font-size: 3.2rem; 
+    margin-bottom: 1rem;
+    color: var(--white-color); 
+}
+.hero-content p {
+    font-size: 1.2rem; 
+    margin-bottom: 2.5rem; 
+    opacity: 0.9;
+    color: var(--white-color); 
+}
+
+#how-it-works .steps-container {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.step {
+    /* background-color: var(--white-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    padding: 35px 30px;
+    text-align: center;
+    border-radius: var(--border-radius-md);
+    /* box-shadow: var(--box-shadow-light); يتم التحكم به عبر body.light-mode/dark-mode */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    /* box-shadow: var(--box-shadow-medium); يتم التحكم به عبر body.light-mode/dark-mode */
+}
+
+.step-icon {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+.step-icon i { 
+    font-size: 3rem; 
+    transition: transform var(--transition-speed) ease;
+}
+.step:hover .step-icon i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.step h3 {
+    margin-bottom: 10px;
+    /* color: var(--dark-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    font-size: 1.3rem; 
+}
+.step p {
+    font-size: 0.95rem; 
+    /* color: var(--text-color); يتم التحكم به عبر body.light-mode/dark-mode */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    /* background-color: var(--white-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    padding: 30px;
+    text-align: center;
+    border-radius: var(--border-radius-md);
+    /* box-shadow: var(--box-shadow-light); يتم التحكم به عبر body.light-mode/dark-mode */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    /* box-shadow: var(--box-shadow-medium); يتم التحكم به عبر body.light-mode/dark-mode */
+}
+
+.feature-icon { 
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-size: 2.5rem; 
+}
+.feature-item h3 {
+    font-size: 1.25rem; 
+}
+.feature-item p {
+    font-size: 0.9rem; 
+}
+
+.gallery-grid { /* إذا كنت لا تزال تستخدم هذا القسم بدلاً من السلايدر */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    /* box-shadow: var(--box-shadow-light); يتم التحكم به عبر body.light-mode/dark-mode */
+    transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+    /* box-shadow: var(--box-shadow-medium); يتم التحكم به عبر body.light-mode/dark-mode */
+}
+
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.testimonial {
+    /* background-color: var(--white-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    padding: 30px;
+    border-radius: var(--border-radius-md);
+    /* box-shadow: var(--box-shadow-light); يتم التحكم به عبر body.light-mode/dark-mode */
+    border-right: 5px solid var(--primary-color); 
+    position: relative;
+    transition: box-shadow var(--transition-speed) ease;
+}
+html[dir="ltr"] .testimonial {
+    border-left: 5px solid var(--primary-color);
+    border-right: none;
+}
+.testimonial:hover {
+    /* box-shadow: var(--box-shadow-medium); يتم التحكم به عبر body.light-mode/dark-mode */
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #666; /* هذا قد يحتاج لتعديل في الوضع الليلي إذا كان غير واضح */
+    font-size: 0.95rem; 
+}
+.testimonial p::before { 
+    content: '“';
+    font-size: 2.5rem; 
+    color: var(--primary-color);
+    margin-left: 8px; 
+    position: relative;
+    top: 10px; 
+    font-weight: bold;
+}
+html[dir="ltr"] .testimonial p::before {
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+.testimonial h4 { 
+    font-size: 1rem; 
+    /* color: var(--dark-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    font-weight: bold;
+    text-align: right; 
+    margin-top: 10px;
+}
+html[dir="ltr"] .testimonial h4 {
+    text-align: left;
+}
+
+#cta {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+#cta h2, #cta p {
+    color: var(--white-color);
+}
+#cta h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem; 
+}
+
+#cta p {
+    font-size: 1.1rem; 
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 600px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+#cta .btn-primary { 
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border-color: var(--white-color);
+}
+#cta .btn-primary:hover {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+footer {
+    /* background-color: var(--dark-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    /* color: #ccc; يتم التحكم به عبر body.light-mode/dark-mode */
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px; 
+    margin-bottom: 40px;
+}
+
+.footer-about h3, .footer-links h4, .footer-contact h4 {
+    /* color: var(--white-color); يتم التحكم به عبر body.light-mode/dark-mode */
+    margin-bottom: 20px;
+    font-size: 1.2rem; 
+}
+.footer-about h3 i { 
+    color: var(--primary-color);
+}
+
+.footer-about p, .footer-contact p {
+    font-size: 0.9rem; 
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.social-links a {
+    /* color: #bbb; يتم التحكم به عبر body.light-mode/dark-mode */
+    margin-left: 15px; 
+    font-size: 1.4rem; 
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+html[dir="ltr"] .social-links a {
+    margin-right: 15px;
+    margin-left: 0;
+}
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+    /* color: #ccc; يتم التحكم به عبر body.light-mode/dark-mode */
+    transition: color var(--transition-speed) ease, padding-right var(--transition-speed) ease; 
+}
+html[dir="ltr"] .footer-links ul li a {
+    transition: color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-color);
+    padding-right: 8px; 
+}
+html[dir="ltr"] .footer-links ul li a:hover {
+    padding-left: 8px;
+    padding-right: 0;
+}
+
+.footer-contact i { 
+    margin-left: 10px; 
+    color: var(--primary-color);
+    width: 20px; 
+    text-align: center;
+}
+html[dir="ltr"] .footer-contact i {
+    margin-right: 10px;
+    margin-left: 0;
+}
+.contact-link {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.contact-link:hover {
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.9rem; 
+    padding-top: 25px;
+    border-top: 1px solid #444; /* هذا قد يحتاج لتعديل في الوضع الليلي */
+    /* color: #aaa; يتم التحكم به عبر body.light-mode/dark-mode */
+}
+
+
+/* === 13. Light & Dark Mode Styles === */
+body.light-mode {
+    --bg-color: var(--white-color);
+    --text-color-main: var(--text-color);
+    --text-color-headings: var(--dark-color);
+    --card-bg-color: var(--white-color);
+    --header-bg-color: var(--white-color);
+    --header-scrolled-bg-color: rgba(255, 255, 255, 0.97);
+    --section-bg-light: var(--light-color);
+    --border-color-mode: var(--border-color);
+    --box-shadow-mode: var(--box-shadow-light);
+    --box-shadow-hover-mode: var(--box-shadow-medium);
+    --footer-bg-color: var(--dark-color);
+    --footer-text-color: #ccc;
+    --theme-toggle-btn-hover-bg: var(--light-color);
+    --testimonial-quote-text-color: #666; /* لون نص الاقتباس في الوضع النهاري */
+    --copyright-border-color: #444;
+    --copyright-text-color: #aaa;
+    --nav-link-color-desktop: var(--medium-dark-color); /* لون روابط القائمة الرئيسية على سطح المكتب */
+}
+
+body.dark-mode {
+    --bg-color: #1a1a2e;
+    --text-color-main: #e0e0e0;
+    --text-color-headings: var(--white-color);
+    --card-bg-color: #242f40;
+    --header-bg-color: #242f40;
+    --header-scrolled-bg-color: rgba(36, 47, 64, 0.97);
+    --section-bg-light: #202833;
+    --border-color-mode: #404a5f;
+    --box-shadow-mode: 0 2px 8px rgba(0, 0, 0, 0.25);
+    --box-shadow-hover-mode: 0 5px 15px rgba(0, 0, 0, 0.35);
+    --footer-bg-color: #121220;
+    --footer-text-color: #a0a0a0;
+    --theme-toggle-btn-hover-bg: #3a4b63;
+    --testimonial-quote-text-color: #b0b0b0; /* لون نص الاقتباس في الوضع الليلي */
+    --copyright-border-color: #333;
+    --copyright-text-color: #888;
+    --nav-link-color-desktop: var(--text-color-main); /* لون روابط القائمة الرئيسية على سطح المكتب */
+
+    /* === تمت الإضافة هنا === */
+    --nav-link-color-dark-mode: #e0e0e0; /* لون فاتح مقروء لروابط القائمة المنسدلة */
+    --nav-link-hover-color-dark-mode: var(--primary-color);
+    --mobile-menu-bg-dark-mode: var(--card-bg-color); /* لون خلفية القائمة المنسدلة */
+    --mobile-menu-link-border-color: rgba(224, 224, 224, 0.1);
+    --mobile-menu-link-hover-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* تطبيق الأنماط العامة للوضع */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color-main);
+}
+
+h1, h2, h3, h4, h5, h6, .section-title, .step h3, .testimonial h4 {
+    color: var(--text-color-headings);
+}
+
+header {
+    background-color: var(--header-bg-color);
+    box-shadow: var(--box-shadow-mode);
+}
+header.scrolled {
+    background-color: var(--header-scrolled-bg-color);
+    box-shadow: var(--box-shadow-hover-mode);
+}
+.menu-toggle {
+    color: var(--text-color-headings);
+}
+
+.main-nav ul li a { /* روابط القائمة الرئيسية على سطح المكتب */
+    color: var(--nav-link-color-desktop);
+}
+
+.theme-toggle-btn {
+    border: 1px solid var(--border-color-mode);
+    color: var(--text-color-main);
+}
+.theme-toggle-btn:hover {
+    background-color: var(--theme-toggle-btn-hover-bg);
+}
+
+.step, .feature-item, .testimonial {
+    background-color: var(--card-bg-color);
+    box-shadow: var(--box-shadow-mode);
+}
+.step:hover, .feature-item:hover, .testimonial:hover {
+    box-shadow: var(--box-shadow-hover-mode);
+}
+.testimonial p {
+    color: var(--testimonial-quote-text-color);
+}
+body.dark-mode .testimonial { /* لضمان أن الحد الجانبي للاقتباس لا يتأثر بحدود البطاقة العامة */
+     border-right-color: var(--primary-color) !important; /* RTL */
+}
+html[dir="ltr"] body.dark-mode .testimonial {
+    border-left-color: var(--primary-color) !important;
+}
+
+footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+}
+.footer-about h3, .footer-links h4, .footer-contact h4 {
+    color: var(--white-color); /* يبقى أبيض في كلا الوضعين غالبًا */
+}
+.footer-links ul li a, .social-links a, .copyright {
+    color: var(--footer-text-color);
+}
+.footer-links ul li a:hover, .social-links a:hover {
+    color: var(--primary-color);
+}
+.copyright {
+    border-top-color: var(--copyright-border-color);
+    color: var(--copyright-text-color);
+}
+hr { /* الخطوط الأفقية العامة إذا استخدمت */
+    border-color: var(--border-color-mode);
+}
+.contact-link { /* لضمان أن روابط الاتصال تبقى واضحة */
+    color: var(--primary-color);
+}
+body.dark-mode .contact-link:hover {
+    color: #ff8c40;
+}
+
+/* انتقالات سلسة لتبديل الوضع */
+body, header, footer, .step, .feature-item, .testimonial, .bg-light, .theme-toggle-btn {
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+h1,h2,h3,h4,h5,h6,.logo,.main-nav ul li a, .menu-toggle, .section-title, .step h3, .testimonial h4, .testimonial p, .social-links a, .copyright {
+    transition: color var(--transition-speed) ease;
+}
+
+
+/* === 14. Animations === */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === 15. Responsive Design === */
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    .main-nav { /* Mobile Menu Styling */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; 
+        right: 0; 
+        width: 100%;
+        /* background-color: var(--header-bg-color); يتم التحكم به أدناه بشكل خاص لكل وضع */
+        box-shadow: var(--box-shadow-hover-mode); /* ظل أغمق قليلاً للقائمة المنسدلة */
+        padding: 15px 0;
+        /* border-top: 1px solid var(--border-color-mode); يتم التحكم به أدناه بشكل خاص لكل وضع */
+        max-height: calc(100vh - 70px); 
+        overflow-y: auto; 
+        z-index: 999;
+    }
+    html[dir="ltr"] .main-nav {
+        right: auto;
+        left: 0;
+    }
+
+    .main-nav.active {
+        display: flex;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .main-nav ul li a {
+        display: block;
+        padding: 15px 20px; 
+        /* border-bottom: 1px solid #f0f0f0; يتم التحكم به أدناه بشكل خاص لكل وضع */
+        font-size: 1.1rem; 
+    }
+    .main-nav ul li a::after { 
+        display: none;
+    }
+
+    .main-nav ul li:last-child a {
+        border-bottom: none;
+    }
+    
+    .menu-toggle { 
+        display: block;
+    }
+
+    .btn-book-header { 
+        display: none;
+    }
+
+    /* === تمت الإضافة والتعديل هنا === */
+    body.light-mode .main-nav {
+        background-color: var(--header-bg-color);
+        border-top: 1px solid var(--border-color-mode);
+    }
+    body.light-mode .main-nav ul li a {
+        color: var(--nav-link-color-desktop); /* نفس لون روابط سطح المكتب في الوضع النهاري */
+        border-bottom: 1px solid var(--border-color-mode);
+    }
+    body.light-mode .main-nav ul li a:hover,
+    body.light-mode .main-nav ul li a.active {
+        color: var(--primary-color);
+        background-color: rgba(0,0,0,0.03);
+    }
+
+
+    body.dark-mode .main-nav {
+        background-color: var(--mobile-menu-bg-dark-mode);
+        border-top: 1px solid var(--border-color-mode);
+    }
+    body.dark-mode .main-nav ul li a {
+        color: var(--nav-link-color-dark-mode); 
+        border-bottom: 1px solid var(--mobile-menu-link-border-color);
+    }
+    body.dark-mode .main-nav ul li a:hover,
+    body.dark-mode .main-nav ul li a.active {
+        color: var(--nav-link-hover-color-dark-mode);
+        background-color: var(--mobile-menu-link-hover-bg);
+    }
+    /* === نهاية الإضافة والتعديل === */
+
+
+    .hero-content h1 {
+        font-size: 2.5rem; 
+    }
+    .hero-content p {
+        font-size: 1.1rem; 
+    }
+    #hero {
+        min-height: 75vh; 
+    }
+
+    .step {
+        flex-basis: calc(50% - 15px); 
+    }
+    
+    .header-actions {
+        order: -1; 
+        margin-left: 15px; 
+    }
+    html[dir="ltr"] .header-actions {
+        margin-right: 15px;
+        margin-left: 0;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    html {
+        font-size: 15px; 
+    }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    .section-title { font-size: 2rem; }
+
+    .step,
+    .feature-item { 
+        flex-basis: 100%;
+    }
+    .features-grid, .testimonials-container, .gallery-grid, #how-it-works .steps-container {
+        grid-template-columns: 1fr; 
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center; 
+    }
+    .footer-about, .footer-links, .footer-contact {
+        margin-bottom: 30px;
+    }
+    .social-links {
+        justify-content: center; 
+        display: flex;
+    }
+    html[dir="rtl"] .social-links a {
+        margin: 0 10px; 
+    }
+    .social-links a {
+        margin: 0 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem; 
+    }
+    .hero-content p {
+        font-size: 1rem; 
+    }
+    .btn-lg {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    #hero {
+        padding-top: 100px; 
+        min-height: 65vh;
+    }
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .logo {
+        font-size: 1.5rem; 
+    }
+    .section-title {
+        font-size: 1.8rem; 
+    }
+    .section-title::after {
+        width: 60px;
+        height: 3px;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem; 
+    }
+    .btn-lg {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    .hero-content h1 {
+        font-size: 1.8rem; 
+    }
+     .hero-content .brand-name {
+        font-size: 1.3em; 
+    }
+    .main-nav ul li a {
+        padding: 12px 15px; 
+    }
+    .theme-toggle-btn {
+        padding: 6px 8px;
+        font-size: 1rem;
+    }
+     .header-actions {
+        gap: 10px; 
+    }
+}
+
+
+/* === Page Header (Generic for subpages like Services, About, Contact) === */
+.page-header {
+    background-color: var(--primary-color); /* أو لون آخر مناسب لرأس الصفحة */
+    color: var(--white-color);
+    padding: 60px var(--section-padding-x) 40px;
+    text-align: center;
+    margin-top: 70px; /* Adjust based on your fixed header height */
+}
+body.dark-mode .page-header {
+    background-color: var(--dark-color); /* أو var(--card-bg-color) */
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--white-color);
+}
+.page-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+/* === Booking Page Specific Styles === */
+.booking-page-content {
+    /* أي أنماط عامة لمحتوى صفحة الحجز إذا لزم الأمر */
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* عمود التفاصيل أعرض من عمود الملخص */
+    gap: 40px;
+}
+
+.booking-details-column,
+.booking-summary-column {
+    /* أنماط مشتركة للأعمدة إذا لزم الأمر */
+}
+
+.booking-section-title {
+    font-size: 1.6rem;
+    color: var(--text-color-headings, var(--dark-color));
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color-mode, var(--border-color));
+}
+.booking-details-column .booking-section-title:first-of-type {
+    margin-top: 0;
+}
+
+
+.selected-service-summary {
+    background-color: var(--section-bg-light, var(--light-color));
+    padding: 15px;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color-mode, var(--border-color));
+}
+.selected-service-summary h4 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+.selected-service-summary p {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    color: var(--text-color-main, var(--text-color));
+}
+
+#additionalServicesCheckboxes .checkbox-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--text-color-main, var(--text-color));
+    cursor: pointer;
+}
+#additionalServicesCheckboxes .checkbox-label input[type="checkbox"] {
+    margin-left: 8px; /* RTL */
+    vertical-align: middle;
+}
+html[dir="ltr"] #additionalServicesCheckboxes .checkbox-label input[type="checkbox"] {
+    margin-right: 8px;
+    margin-left: 0;
+}
+.addon-price {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+
+.booking-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color-mode, var(--border-color));
+    margin: 30px 0;
+}
+
+/* Form Group styles (يمكن إعادة استخدامها من صفحة الاتصال إذا كانت متشابهة) */
+/* .form-group, .form-group label, .form-group input, .form-group textarea, ... */
+/* تأكد من أن لديك أنماط مشابهة لتلك الموجودة في صفحة contact.html */
+/* سأضيف بعض الأنماط الأساسية هنا للتأكيد */
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color-headings, var(--dark-color));
+    font-size: 0.95rem;
+}
+.form-group label .required {
+    color: var(--error-color, red);
+    margin-right: 3px; /* RTL */
+}
+html[dir="ltr"] .form-group label .required {
+    margin-left: 3px;
+    margin-right: 0;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color-mode, var(--border-color));
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    background-color: var(--bg-color, var(--white-color));
+    color: var(--text-color-main, var(--text-color));
+    transition: border-color 0.3s ease;
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.2);
+}
+body.dark-mode .form-group input[type="text"],
+body.dark-mode .form-group input[type="email"],
+body.dark-mode .form-group input[type="tel"],
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background-color: var(--card-bg-color);
+}
+.form-group small {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-color-main, var(--text-color));
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+
+.booking-map-container {
+    width: 100%;
+    height: 300px; /* ارتفاع الخريطة في صفحة الحجز */
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color-mode, var(--border-color));
+}
+
+/* Price Summary Card */
+.price-summary-card {
+    background-color: var(--card-bg-color, var(--white-color));
+    padding: 25px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-mode, var(--box-shadow-light));
+}
+.sticky-summary { /* لجعل ملخص السعر يثبت عند التمرير */
+    position: sticky;
+    top: 100px; /* يجب أن يكون أكبر من ارتفاع الهيدر الثابت */
+}
+
+#priceBreakdown p, #addonsSummary p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--text-color-main, var(--text-color));
+}
+#priceBreakdown strong, #addonsSummary strong {
+    color: var(--text-color-headings, var(--dark-color));
+}
+#selectedAddonsList {
+    list-style: disc;
+    padding-right: 20px; /* RTL */
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+html[dir="ltr"] #selectedAddonsList {
+    padding-left: 20px;
+    padding-right: 0;
+}
+#selectedAddonsList li {
+    margin-bottom: 5px;
+}
+
+.total-price {
+    font-size: 1.5rem !important; /* !important للتأكيد على حجم السعر الإجمالي */
+    font-weight: bold;
+    color: var(--primary-color) !important;
+    margin-top: 15px;
+    margin-bottom: 10px !important;
+    text-align: center;
+}
+.price-notice-summary {
+    font-size: 0.8rem;
+    color: var(--text-color-main, var(--text-color));
+    opacity: 0.8;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payment-info {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--section-bg-light, var(--light-color));
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color-mode, var(--border-color));
+}
+.payment-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--text-color-headings, var(--dark-color));
+}
+.payment-info p {
+    font-size: 0.95rem;
+    color: var(--text-color-main, var(--text-color));
+}
+.payment-info i {
+    color: var(--success-color);
+    margin-left: 8px; /* RTL */
+}
+html[dir="ltr"] .payment-info i {
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+
+/* Responsive adjustments for booking page */
+@media (max-width: 991.98px) {
+    .booking-grid {
+        grid-template-columns: 1fr; /* عمود واحد على الشاشات المتوسطة والصغيرة */
+    }
+    .booking-summary-column {
+        margin-top: 30px;
+    }
+    .sticky-summary {
+        position: static; /* إلغاء التثبيت على الشاشات الصغيرة */
+    }
+}
+
+/* Flatpickr custom styling (إذا أردت) */
+.flatpickr-calendar {
+    font-family: var(--font-family);
+    /* يمكنك إضافة المزيد من التخصيصات هنا */
+}
+body.dark-mode .flatpickr-calendar {
+    background: var(--card-bg-color);
+    border-color: var(--border-color-mode);
+    box-shadow: var(--box-shadow-mode);
+}
+body.dark-mode .flatpickr-months .flatpickr-month,
+body.dark-mode .flatpickr-current-month .flatpickr-monthDropdown-months,
+body.dark-mode .flatpickr-weekday,
+body.dark-mode .flatpickr-day {
+    color: var(--text-color-main);
+}
+body.dark-mode .flatpickr-day.selected,
+body.dark-mode .flatpickr-day.startRange,
+body.dark-mode .flatpickr-day.endRange,
+body.dark-mode .flatpickr-day.selected.inRange,
+body.dark-mode .flatpickr-day.startRange.inRange,
+body.dark-mode .flatpickr-day.endRange.inRange,
+body.dark-mode .flatpickr-day.selected:focus,
+body.dark-mode .flatpickr-day.startRange:focus,
+body.dark-mode .flatpickr-day.endRange:focus,
+body.dark-mode .flatpickr-day.selected:hover,
+body.dark-mode .flatpickr-day.startRange:hover,
+body.dark-mode .flatpickr-day.endRange:hover,
+body.dark-mode .flatpickr-day.selected.prevMonthDay,
+body.dark-mode .flatpickr-day.startRange.prevMonthDay,
+body.dark-mode .flatpickr-day.endRange.prevMonthDay,
+body.dark-mode .flatpickr-day.selected.nextMonthDay,
+body.dark-mode .flatpickr-day.startRange.nextMonthDay,
+body.dark-mode .flatpickr-day.endRange.nextMonthDay {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-color);
+}
+body.dark-mode .flatpickr-day:hover,
+body.dark-mode .flatpickr-day:focus {
+    background: var(--header-scrolled-bg-color); /* لون خفيف للمرور */
+    border-color: var(--header-scrolled-bg-color);
+}
+body.dark-mode .flatpickr-time input,
+body.dark-mode .flatpickr-time .flatpickr-am-pm {
+    background: var(--bg-color);
+    color: var(--text-color-main);
+}
+
+/* === Popup Styles (Privacy Policy) === */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* خلفية معتمة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000; /* يجب أن يكون أعلى من العناصر الأخرى */
+    opacity: 0; /* للتحكم في الظهور التدريجي */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+.popup-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
+
+.popup-content {
+    background-color: var(--card-bg-color, var(--white-color)); /* استخدام متغيرات الوضع */
+    color: var(--text-color-main, var(--text-color));
+    padding: 30px;
+    border-radius: var(--border-radius-lg, 12px);
+    box-shadow: var(--box-shadow-dark, 0 8px 25px rgba(0, 0, 0, 0.15));
+    width: 90%;
+    max-width: 700px; /* عرض أقصى للنافذة */
+    max-height: 85vh; /* ارتفاع أقصى مع ترك مساحة */
+    display: flex;
+    flex-direction: column;
+    position: relative; /* لزر الإغلاق المطلق */
+    transform: scale(0.9); /* للتحكم في الظهور التدريجي */
+    transition: transform 0.3s ease;
+}
+.popup-overlay.visible .popup-content {
+    transform: scale(1);
+}
+
+
+.popup-close-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px; /* RTL: right: 15px; left: auto; */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-color-main, var(--text-color));
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+}
+html[dir="ltr"] .popup-close-btn {
+    right: 15px;
+    left: auto;
+}
+.popup-close-btn:hover {
+    color: var(--primary-color);
+}
+
+.popup-content h2 {
+    font-size: 1.8rem;
+    color: var(--text-color-headings, var(--dark-color));
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.privacy-text {
+    overflow-y: auto; /* يجعل النص قابلاً للتمرير إذا تجاوز الارتفاع */
+    max-height: calc(85vh - 200px); /* ارتفاع النص (يأخذ في الاعتبار العنوان، الأفعال، والـ padding) */
+    padding: 0 15px 15px 0; /* padding لليمين وأسفل شريط التمرير في RTL */
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    border: 1px solid var(--border-color-mode, var(--border-color));
+    border-radius: var(--border-radius-sm);
+}
+html[dir="ltr"] .privacy-text {
+    padding: 0 0 15px 15px;
+}
+
+.privacy-text p, .privacy-text ul {
+    margin-bottom: 1em;
+}
+.privacy-text ul {
+    list-style: disc;
+    padding-right: 25px; /* RTL */
+}
+html[dir="ltr"] .privacy-text ul {
+    padding-left: 25px;
+    padding-right: 0;
+}
+.privacy-text strong {
+    color: var(--text-color-headings, var(--dark-color));
+}
+.privacy-text a { /* روابط داخل نص السياسة */
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+.privacy-text a:hover {
+    color: var(--secondary-color);
+}
+
+
+.popup-actions {
+    margin-top: auto; /* لدفع هذا القسم للأسفل */
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color-mode, var(--border-color));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.popup-actions .privacy-checkbox { /* لتنسيق مربع الاختيار */
+    font-size: 0.9rem;
+    color: var(--text-color-main, var(--text-color));
+}
+.popup-actions .privacy-checkbox input[type="checkbox"] {
+    margin-left: 8px; /* RTL */
+    vertical-align: middle;
+}
+html[dir="ltr"] .popup-actions .privacy-checkbox input[type="checkbox"] {
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+.popup-actions .btn {
+    min-width: 150px; /* عرض أدنى للزر */
+}
+.popup-actions .btn:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+body.dark-mode .popup-actions .btn:disabled {
+    background-color: #555;
+    border-color: #555;
+    color: #999;
+}
+
+
+/* Responsive for Popup */
+@media (max-width: 767.98px) {
+    .popup-content {
+        padding: 20px;
+        max-height: 90vh; /* السماح بارتفاع أكبر قليلاً على الشاشات الصغيرة */
+    }
+    .popup-content h2 {
+        font-size: 1.5rem;
+    }
+    .privacy-text {
+        font-size: 0.9rem;
+        max-height: calc(90vh - 180px);
+    }
+}
+
+
+/* === FAQ Page Specific Styles === */
+.faq-page-content {
+    /* أي أنماط عامة لمحتوى صفحة الأسئلة الشائعة إذا لزم الأمر */
+}
+
+.faq-container {
+    max-width: 800px; /* تحديد عرض أقصى لمنطقة الأسئلة */
+    margin: 0 auto 50px auto; /* توسيط مع هامش سفلي */
+}
+
+.faq-category {
+    margin-bottom: 40px;
+}
+
+.category-title-faq {
+    font-size: 1.8rem;
+    color: var(--text-color-headings, var(--dark-color));
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+.category-title-faq i {
+    margin-left: 10px; /* RTL */
+    color: var(--primary-color);
+}
+html[dir="ltr"] .category-title-faq i {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+
+.faq-item {
+    background-color: var(--card-bg-color, var(--white-color));
+    margin-bottom: 15px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-mode, var(--box-shadow-light));
+    border: 1px solid var(--border-color-mode, var(--border-color));
+    overflow: hidden; /* لمنع تداخل المحتوى عند الفتح/الإغلاق */
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 18px 20px;
+    background-color: transparent; /* أو لون خلفية خفيف للسؤال */
+    border: none;
+    text-align: right; /* RTL */
+    font-family: var(--font-family);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color-headings, var(--dark-color));
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+html[dir="ltr"] .faq-question {
+    text-align: left;
+}
+.faq-question:hover {
+    background-color: rgba(0,0,0,0.03); /* خلفية خفيفة عند المرور */
+}
+body.dark-mode .faq-question:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+
+.faq-question .faq-icon {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+    color: var(--primary-color);
+}
+.faq-question[aria-expanded="true"] .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 20px; /* padding مبدئي صفر، سيتم تعديله عند الفتح */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background-color: var(--section-bg-light, var(--light-color)); /* خلفية للإجابة */
+    color: var(--text-color-main, var(--text-color));
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+.faq-answer p, .faq-answer ul {
+    margin-bottom: 1em;
+}
+.faq-answer ul {
+    list-style: disc;
+    padding-right: 20px; /* RTL */
+}
+html[dir="ltr"] .faq-answer ul {
+    padding-left: 20px;
+    padding-right: 0;
+}
+.faq-answer a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+.faq-answer a:hover {
+    color: var(--secondary-color);
+}
+
+/* عند فتح الأكورديون */
+.faq-item .faq-question[aria-expanded="true"] + .faq-answer {
+    padding: 20px; /* إضافة padding عند الفتح */
+    /* max-height يتم التحكم به بواسطة JavaScript */
+}
+
+
+#ask-question-section .section-title {
+    margin-top: 60px; /* مسافة قبل قسم "اسأل سؤالك" */
+}
+/* أنماط نموذج "اسأل سؤالك" يمكن أن تعيد استخدام أنماط .contact-form-container إذا كانت متشابهة */
+/* .contact-form-container, .form-group, etc. */
+
+/* Responsive for FAQ */
+@media (max-width: 767.98px) {
+    .category-title-faq {
+        font-size: 1.5rem;
+    }
+    .faq-question {
+        font-size: 1rem;
+        padding: 15px;
+    }
+    .faq-answer {
+        font-size: 0.9rem;
+    }
+     .faq-item .faq-question[aria-expanded="true"] + .faq-answer {
+        padding: 15px;
+    }
+}
+
+
+
+/* === About Page Specific Styles === */
+.about-page-content {
+    /* أي أنماط عامة لمحتوى صفحة من نحن إذا لزم الأمر */
+}
+
+.about-section {
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+}
+/* لإزالة التباعد المزدوج إذا كان هناك قسم bg-light يليه قسم آخر مباشرة */
+.about-section.bg-light + .about-section {
+    /* padding-top: 0;  -- يمكن استخدام هذا إذا أردت دمج الأقسام بصريًا أكثر */
+}
+
+
+.about-section-title {
+    font-size: 2.2rem;
+    color: var(--text-color-headings, var(--dark-color));
+    margin-bottom: 30px;
+    position: relative;
+}
+.about-section-title.text-center { /* للتأكد أن الخط السفلي يتوسط */
+    display: inline-block; /* أو inline-flex إذا كان هناك أيقونة */
+    padding-bottom: 10px;
+}
+.about-section-title.text-center::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+/* إذا لم يكن العنوان متوسطًا */
+.about-section:not(.text-center) .about-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0; /* RTL */
+    width: 70px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+html[dir="ltr"] .about-section:not(.text-center) .about-section-title::after {
+    left: 0;
+    right: auto;
+}
+
+
+/* Our Story Section */
+.about-content-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
+.about-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+    color: var(--text-color-main, var(--text-color));
+}
+.about-image img {
+    border-radius: var(--border-radius-lg, 12px);
+    box-shadow: var(--box-shadow-hover-mode, var(--box-shadow-medium));
+    width: 100%;
+    max-height: 450px; /* تحديد ارتفاع أقصى للصورة */
+    object-fit: cover;
+}
+
+/* Mission & Vision Section */
+.container-tight { /* حاوية أضيق لبعض الأقسام */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--section-padding-x);
+}
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+.mission-item, .vision-item {
+    background-color: var(--card-bg-color, var(--white-color));
+    padding: 30px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-mode, var(--box-shadow-light));
+}
+.mv-icon {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+.mission-item h3, .vision-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color-headings, var(--dark-color));
+}
+.mission-item p, .vision-item p {
+    font-size: 0.95rem;
+    color: var(--text-color-main, var(--text-color));
+    line-height: 1.7;
+}
+
+/* Our Values Section */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    text-align: center;
+}
+.value-item {
+    /* background-color: var(--section-bg-light, var(--light-color)); يمكن إضافة خلفية إذا أردت */
+    /* padding: 20px; */
+    /* border-radius: var(--border-radius-sm); */
+}
+.value-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color); /* لون مختلف لأيقونات القيم */
+    margin-bottom: 15px;
+    display: block; /* لجعلها تأخذ مساحة خاصة */
+}
+.value-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--text-color-headings, var(--dark-color));
+}
+.value-item p {
+    font-size: 0.9rem;
+    color: var(--text-color-main, var(--text-color));
+    line-height: 1.6;
+}
+
+
+/* Our Team Section */
+.team-intro {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    font-size: 1.05rem;
+    color: var(--text-color-main, var(--text-color));
+}
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.team-member {
+    background-color: var(--card-bg-color, var(--white-color));
+    padding: 25px;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    box-shadow: var(--box-shadow-mode, var(--box-shadow-light));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover-mode, var(--box-shadow-medium));
+}
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    border: 4px solid var(--primary-color);
+}
+.team-member h4 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: var(--text-color-headings, var(--dark-color));
+}
+.member-title {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+.member-bio {
+    font-size: 0.9rem;
+    color: var(--text-color-main, var(--text-color));
+    line-height: 1.6;
+}
+
+/* CTA on About Page */
+.cta-about {
+    /* يمكن إعادة استخدام أنماط .cta-section أو إنشاء أنماط جديدة */
+    margin-top: 50px;
+}
+.cta-about h2 {
+    font-size: 2rem;
+    color: var(--text-color-headings, var(--dark-color));
+    margin-bottom: 15px;
+}
+.cta-about p {
+    font-size: 1.1rem;
+    color: var(--text-color-main, var(--text-color));
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* للسماح للأزرار بالانتقال لسطر جديد على الشاشات الصغيرة */
+}
+
+
+/* Responsive adjustments for about page */
+@media (max-width: 767.98px) {
+    .about-section-title {
+        font-size: 1.8rem;
+    }
+    .about-content-block {
+        grid-template-columns: 1fr; /* عمود واحد للقصة والصورة */
+    }
+    .about-image {
+        order: -1; /* لعرض الصورة فوق النص على الشاشات الصغيرة */
+        margin-bottom: 30px;
+    }
+    .mission-vision-grid, .values-grid, .team-grid {
+        grid-template-columns: 1fr;
+    }
+    .team-member img {
+        width: 120px;
+        height: 120px;
+    }
+    .cta-about h2 {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,230 @@
+/* === Contact Page Specific Styles === */
+.contact-page-content {
+    /* أي أنماط عامة لمحتوى صفحة الاتصال إذا لزم الأمر */
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    
+}
+
+.contact-info h3,
+.contact-form-container h3 {
+    font-size: 1.8rem;
+    color: var(--text-color-headings, var(--dark-color));
+    margin-bottom: 15px;
+}
+.contact-info p,
+.contact-form-container p {
+    margin-bottom: 25px;
+    color: var(--text-color-main, var(--text-color));
+    line-height: 1.8;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start; /* Align icon to the top of text block */
+    margin-bottom: 20px;
+    color: var(--text-color-main, var(--text-color));
+}
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-left: 15px; /* RTL */
+    margin-top: 5px; /* Slight top margin for better alignment with text */
+    width: 25px; /* Fixed width for alignment */
+    text-align: center;
+}
+html[dir="ltr"] .info-item i {
+    margin-right: 15px;
+    margin-left: 0;
+}
+.info-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--text-color-headings, var(--dark-color));
+}
+.info-item p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+.contact-link-standalone { /* For phone/email links in contact info */
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.contact-link-standalone:hover {
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+body.dark-mode .contact-link-standalone:hover {
+    color: #ff8c40; /* Lighter primary for hover in dark mode */
+}
+
+
+.social-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: var(--text-color-headings, var(--dark-color));
+}
+.social-links-contact {
+    display: flex;
+    gap: 15px;
+}
+.social-links-contact .social-icon {
+    display: inline-flex; /* Use flex for centering icon */
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.social-links-contact .social-icon:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+body.dark-mode .social-links-contact .social-icon {
+    /* You might want a different bg for social icons in dark mode if primary is too bright */
+    /* background-color: var(--secondary-color); */
+}
+
+
+/* Contact Form Styles */
+.contact-form-container {
+    background-color: var(--card-bg-color, var(--white-color));
+    padding: 30px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-mode, var(--box-shadow-light));
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color-headings, var(--dark-color));
+    font-size: 0.95rem;
+}
+.form-group label .required {
+    color: var(--error-color, red);
+    margin-right: 3px; /* RTL */
+}
+html[dir="ltr"] .form-group label .required {
+    margin-left: 3px;
+    margin-right: 0;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color-mode, var(--border-color));
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    background-color: var(--bg-color, var(--white-color)); /* Match body background for inputs */
+    color: var(--text-color-main, var(--text-color));
+    transition: border-color 0.3s ease;
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.2); /* Primary color focus ring */
+}
+body.dark-mode .form-group input[type="text"],
+body.dark-mode .form-group input[type="email"],
+body.dark-mode .form-group input[type="tel"],
+body.dark-mode .form-group textarea {
+    background-color: var(--card-bg-color); /* Darker input background for dark mode */
+}
+
+
+.btn-block { /* Utility class for full-width button */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-block i {
+    margin-right: 8px; /* RTL */
+}
+html[dir="ltr"] .btn-block i {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+.form-status { /* For success/error messages from form submission */
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    text-align: center;
+}
+.form-status.success {
+    background-color: rgba(40, 167, 69, 0.1); /* Light green for success */
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+.form-status.error {
+    background-color: rgba(220, 53, 69, 0.1); /* Light red for error */
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+
+
+/* Map Section Styles */
+#map-location {
+    margin-top: 50px;
+}
+#map-location h3 {
+    font-size: 1.8rem;
+    color: var(--text-color-headings, var(--dark-color));
+    margin-bottom: 10px;
+    text-align: center;
+}
+#map-location p { /* Subtitle for map */
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--text-color-main, var(--text-color));
+}
+
+.map-container {
+    width: 100%;
+    height: 450px; /* Adjust as needed */
+    border-radius: var(--border-radius-md);
+    overflow: hidden; /* To ensure iframe corners are rounded if map has border-radius */
+    box-shadow: var(--box-shadow-mode, var(--box-shadow-light));
+}
+.map-container iframe {
+    border: none; /* Remove default iframe border */
+}
+
+
+/* Responsive adjustments for contact page */
+@media (max-width: 767.98px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+    .contact-info, .contact-form-container {
+        margin-bottom: 30px; /* Space between sections when stacked */
+    }
+    .map-container {
+        height: 350px;
+    }
+}

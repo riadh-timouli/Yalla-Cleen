@@ -1,0 +1,171 @@
+
+
+/* === Services Page Specific Styles === */
+.services-page-content {
+    /* أي أنماط عامة لمحتوى صفحة الخدمات إذا لزم الأمر */
+}
+
+.vehicle-type-selector {
+    background-color: var(--card-bg-color, var(--white-color));
+    padding: 20px;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 40px;
+    box-shadow: var(--box-shadow-mode, var(--box-shadow-light));
+    text-align: center;
+}
+.vehicle-type-selector label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-color-headings, var(--dark-color));
+}
+.vehicle-type-selector select {
+    padding: 10px 15px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color-mode, var(--border-color));
+    font-family: var(--font-family);
+    font-size: 1rem;
+    min-width: 250px;
+    background-color: var(--bg-color, var(--white-color)); /* Match body background */
+    color: var(--text-color-main, var(--text-color));
+}
+body.dark-mode .vehicle-type-selector select option {
+    background-color: var(--card-bg-color); /* For dropdown options in dark mode */
+    color: var(--text-color-main);
+}
+
+.price-notice {
+    font-size: 0.85rem;
+    color: var(--text-color-main, var(--text-color));
+    margin-top: 15px;
+    opacity: 0.8;
+}
+
+
+.service-category {
+    margin-bottom: 60px;
+}
+.service-category:last-child {
+    margin-bottom: 0;
+}
+
+.category-title {
+    font-size: 2.2rem;
+    color: var(--text-color-headings, var(--dark-color));
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block; /* To make border only under text */
+}
+.category-title i {
+    margin-left: 10px; /* RTL */
+    color: var(--primary-color);
+}
+html[dir="ltr"] .category-title i {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--card-bg-color, var(--white-color));
+    padding: 25px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-mode, var(--box-shadow-light));
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover-mode, var(--box-shadow-medium));
+}
+
+.service-card-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-align: center; /* أو أي محاذاة تفضلها */
+}
+.service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--text-color-headings, var(--dark-color));
+}
+.service-card p { /* الوصف الرئيسي للخدمة */
+    font-size: 0.95rem;
+    color: var(--text-color-main, var(--text-color));
+    margin-bottom: 15px;
+    flex-grow: 1; /* لجعل الوصف يأخذ المساحة المتاحة قبل السعر والزر */
+}
+
+.service-details-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: var(--text-color-main, var(--text-color));
+}
+.service-details-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+.service-details-list li i {
+    color: var(--success-color); /* لون أيقونة الصح */
+    margin-left: 8px; /* RTL */
+    font-size: 0.8em;
+}
+html[dir="ltr"] .service-details-list li i {
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+
+.service-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-align: center;
+}
+.service-price .price {
+    /* يمكن تنسيق السعر بشكل خاص إذا لزم الأمر */
+}
+
+.service-card .btn { /* زر الحجز داخل البطاقة */
+    margin-top: auto; /* لدفع الزر إلى أسفل البطاقة */
+    width: 100%;
+}
+
+.booking-cta-services {
+    background-color: var(--section-bg-light, var(--light-color));
+    padding: 50px var(--section-padding-x);
+    border-radius: var(--border-radius-md);
+    margin-top: 40px;
+}
+.booking-cta-services h2 {
+    color: var(--text-color-headings, var(--dark-color));
+}
+
+/* Responsive adjustments for services page */
+@media (max-width: 767.98px) {
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+    .category-title {
+        font-size: 1.8rem;
+    }
+    .services-grid {
+        grid-template-columns: 1fr; /* عمود واحد على الشاشات الصغيرة */
+    }
+    .vehicle-type-selector select {
+        min-width: 100%;
+    }
+}

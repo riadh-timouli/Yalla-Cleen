@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - Yalla Clean</title>
+    
+    <!-- Google Fonts (Cairo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css"> <!-- سنحتاج إلى تعديلات في style.css أو ملف CSS خاص بالـ dashboard -->
+    <link rel="stylesheet" href="dashboard-style.css"> <!-- ملف CSS مخصص للوحة التحكم -->
+
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
+</head>
+<body class="dashboard-body light-mode"> <!-- كلاس خاص لـ body لوحة التحكم -->
+
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="dashboard-logo">Yalla Clean <i class="fas fa-tachometer-alt"></i></a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#dashboard-overview" class="sidebar-link active" data-target="dashboard-overview"><i class="fas fa-chart-line"></i> نظرة عامة</a></li>
+                    <li><a href="#bookings-management" class="sidebar-link" data-target="bookings-management"><i class="fas fa-calendar-alt"></i> إدارة الحجوزات</a></li>
+                    <li><a href="#services-pricing" class="sidebar-link" data-target="services-pricing"><i class="fas fa-concierge-bell"></i> الخدمات والأسعار</a></li>
+                    <li><a href="#customers-management" class="sidebar-link" data-target="customers-management"><i class="fas fa-users"></i> إدارة العملاء</a></li>
+                    <li><a href="#regions-management" class="sidebar-link" data-target="regions-management"><i class="fas fa-map-marked-alt"></i> إدارة المناطق</a></li>
+                    <li><a href="#reports" class="sidebar-link" data-target="reports"><i class="fas fa-file-alt"></i> التقارير</a></li>
+                    <li><a href="#settings" class="sidebar-link" data-target="settings"><i class="fas fa-cog"></i> الإعدادات</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="theme-toggle-dashboard" class="theme-toggle-btn-dashboard">
+                    <i class="fas fa-moon"></i> <!-- أو fa-sun حسب الوضع -->
+                </button>
+                <a href="logout.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="dashboard-main-content">
+            <header class="dashboard-main-header">
+                <button class="sidebar-toggle-mobile"><i class="fas fa-bars"></i></button>
+                <h1>لوحة التحكم</h1>
+                <div class="admin-profile">
+                    <span>أهلاً، AylaX</span>
+                    <img src="https://via.placeholder.com/40" alt="صورة المدير" class="admin-avatar">
+                </div>
+            </header>
+
+            <!-- Content sections will be loaded here or shown/hidden by JS -->
+            <div class="dashboard-content-area">
+                
+                <!-- 1. نظرة عامة (Dashboard Overview) -->
+                <section id="dashboard-overview" class="dashboard-section active-section">
+                    <h2>نظرة عامة على النشاط</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-calendar-check stat-icon"></i>
+                            <h4>إجمالي الحجوزات (الشهر)</h4>
+                            <p class="stat-value">125</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-spinner fa-spin stat-icon"></i> <!-- fa-spin للحجوزات قيد الانتظار -->
+                            <h4>حجوزات جديدة اليوم</h4>
+                            <p class="stat-value">8</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-money-bill-wave stat-icon"></i>
+                            <h4>الإيرادات المتوقعة (الشهر)</h4>
+                            <p class="stat-value">250,000 دج</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-users stat-icon"></i>
+                            <h4>عملاء جدد (الشهر)</h4>
+                            <p class="stat-value">30</p>
+                        </div>
+                    </div>
+                    <!-- يمكن إضافة رسوم بيانية هنا باستخدام مكتبة مثل Chart.js -->
+                    <div class="charts-placeholder">
+                        <p>[مكان مخصص للرسوم البيانية لأداء الحجوزات والإيرادات]</p>
+                        <canvas id="bookingsChart" style="max-height: 300px;"></canvas>
+                    </div>
+                </section>
+
+                <!-- 2. إدارة الحجوزات -->
+                <section id="bookings-management" class="dashboard-section">
+                    <h2>إدارة الحجوزات</h2>
+                    <div class="actions-bar">
+                        <input type="text" placeholder="بحث برقم الحجز أو اسم العميل..." class="search-input">
+                        <select class="filter-select">
+                            <option value="">كل الحالات</option>
+                            <option value="new">جديد</option>
+                            <option value="confirmed">مؤكد</option>
+                            <option value="completed">مكتمل</option>
+                            <option value="cancelled">ملغى</option>
+                        </select>
+                        <button class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> إضافة حجز يدوي</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الحجز</th>
+                                    <th>العميل</th>
+                                    <th>الهاتف</th>
+                                    <th>الخدمة</th>
+                                    <th>التاريخ والوقت</th>
+                                    <th>السعر (دج)</th>
+                                    <th>الحالة</th>
+                                    <th>إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- مثال لصف بيانات -->
+                                <tr>
+                                    <td>YC-1023</td>
+                                    <td>أحمد علي</td>
+                                    <td>+213661122334</td>
+                                    <td>غسيل VIP</td>
+                                    <td>2024-07-25 10:00</td>
+                                    <td>3500</td>
+                                    <td><span class="status-badge status-new">جديد</span></td>
+                                    <td>
+                                        <button class="action-btn view-btn" title="عرض التفاصيل"><i class="fas fa-eye"></i></button>
+                                        <button class="action-btn edit-btn" title="تعديل"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete-btn" title="إلغاء"><i class="fas fa-times-circle"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>YC-1022</td>
+                                    <td>فاطمة بن قاسم</td>
+                                    <td>+213770099887</td>
+                                    <td>غسيل داخلي وخارجي</td>
+                                    <td>2024-07-24 14:30</td>
+                                    <td>2000</td>
+                                    <td><span class="status-badge status-confirmed">مؤكد</span></td>
+                                    <td>
+                                        <button class="action-btn view-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
+                                <!-- المزيد من الصفوف -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <a href="#" class="page-link prev disabled">« السابق</a>
+                        <a href="#" class="page-link active">1</a>
+                        <a href="#" class="page-link">2</a>
+                        <a href="#" class="page-link">3</a>
+                        <a href="#" class="page-link next">التالي »</a>
+                    </div>
+                </section>
+
+                <!-- 3. إدارة الخدمات والأسعار -->
+                <section id="services-pricing" class="dashboard-section">
+                    <h2>إدارة الخدمات والأسعار</h2>
+                    <div class="actions-bar">
+                         <button class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> إضافة خدمة جديدة</button>
+                    </div>
+                    <div class="services-pricing-grid">
+                        <!-- مثال لبطاقة خدمة -->
+                        <div class="service-price-card">
+                            <h4>غسيل VIP (متكامل وعميق)</h4>
+                            <div class="price-inputs">
+                                <label>سيدان: <input type="number" value="3500" class="price-input"> دج</label>
+                                <label>SUV: <input type="number" value="4500" class="price-input"> دج</label>
+                                <label>بيك أب: <input type="number" value="5500" class="price-input"> دج</label>
+                            </div>
+                            <textarea placeholder="وصف الخدمة...">عناية فائقة وتفصيلية لسيارتك من الداخل والخارج لتجربة فاخرة.</textarea>
+                            <button class="btn btn-secondary btn-sm">حفظ التغييرات</button>
+                            <button class="btn btn-danger btn-sm">حذف الخدمة</button>
+                        </div>
+                        <!-- المزيد من بطاقات الخدمات -->
+                    </div>
+                </section>
+
+                <!-- 4. إدارة العملاء -->
+                <section id="customers-management" class="dashboard-section">
+                    <h2>إدارة العملاء</h2>
+                     <div class="actions-bar">
+                        <input type="text" placeholder="بحث باسم العميل أو رقم الهاتف..." class="search-input">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>اسم العميل</th>
+                                    <th>رقم الهاتف</th>
+                                    <th>البريد الإلكتروني</th>
+                                    <th>إجمالي الحجوزات</th>
+                                    <th>آخر حجز</th>
+                                    <th>إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>أحمد علي</td>
+                                    <td>+213661122334</td>
+                                    <td>ahmed.ali@example.com</td>
+                                    <td>5</td>
+                                    <td>2024-07-25</td>
+                                    <td><button class="action-btn view-btn"><i class="fas fa-eye"></i></button></td>
+                                </tr>
+                                <!-- المزيد من العملاء -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 5. إدارة المناطق -->
+                <section id="regions-management" class="dashboard-section">
+                    <h2>إدارة المناطق المغطاة</h2>
+                    <div class="actions-bar">
+                        <input type="text" id="newRegionInput" placeholder="اسم المنطقة الجديدة..." class="search-input" style="width: auto;">
+                        <button id="addRegionBtn" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> إضافة منطقة</button>
+                    </div>
+                    <ul id="regionsList" class="regions-list">
+                        <li>الجزائر العاصمة <button class="action-btn delete-btn btn-sm" title="حذف"><i class="fas fa-trash-alt"></i></button></li>
+                        <li>وهران <button class="action-btn delete-btn btn-sm" title="حذف"><i class="fas fa-trash-alt"></i></button></li>
+                        <li>البليدة <button class="action-btn delete-btn btn-sm" title="حذف"><i class="fas fa-trash-alt"></i></button></li>
+                        <!-- سيتم ملء هذه القائمة ديناميكيًا -->
+                    </ul>
+                </section>
+
+                <!-- 6. التقارير -->
+                 <section id="reports" class="dashboard-section">
+                    <h2>التقارير والإحصائيات</h2>
+                    <div class="report-options">
+                        <label for="reportType">نوع التقرير:</label>
+                        <select id="reportType" class="filter-select">
+                            <option value="bookings_summary">ملخص الحجوزات</option>
+                            <option value="revenue_report">تقرير الإيرادات</option>
+                            <option value="popular_services">الخدمات الأكثر طلباً</option>
+                        </select>
+                        <label for="dateRange">الفترة الزمنية:</label>
+                        <input type="text" id="reportDateRange" class="date-range-picker" placeholder="اختر فترة زمنية">
+                        <button class="btn btn-secondary btn-sm">توليد التقرير</button>
+                    </div>
+                    <div class="report-display-area">
+                        <p>[سيتم عرض نتائج التقرير هنا]</p>
+                    </div>
+                </section>
+
+                <!-- 7. الإعدادات -->
+                <section id="settings" class="dashboard-section">
+                    <h2>إعدادات عامة</h2>
+                    <form id="settingsForm">
+                        <div class="form-group-dashboard">
+                            <label for="companyName">اسم الشركة:</label>
+                            <input type="text" id="companyName" value="Yalla Clean">
+                        </div>
+                        <div class="form-group-dashboard">
+                            <label for="companyPhone">هاتف الشركة الرئيسي:</label>
+                            <input type="tel" id="companyPhone" value="+213772035502">
+                        </div>
+                         <div class="form-group-dashboard">
+                            <label for="companyEmail">البريد الإلكتروني للشركة:</label>
+                            <input type="email" id="companyEmail" value="samibenlaalmi@gmail.com">
+                        </div>
+                        <div class="form-group-dashboard">
+                            <label for="workingHours">ساعات العمل (للحجوزات):</label>
+                            <input type="text" id="workingHours" value="السبت - الخميس: 09:00 - 19:00">
+                        </div>
+                        <button type="submit" class="btn btn-primary">حفظ الإعدادات</button>
+                    </form>
+                </section>
+
+            </div> <!-- نهاية .dashboard-content-area -->
+        </main>
+    </div>
+
+
+
+    <script src="dashboard-script.js"></script> <!-- ملف JavaScript مخصص للوحة التحكم -->
+</body>
+</html>

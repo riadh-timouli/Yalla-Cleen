@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام الحجز - Yalla Clean</title>
+    <meta name="description" content="أكمل حجز خدمة غسيل السيارات من Yalla Clean. حدد التفاصيل، موقعك، والوقت المناسب لك.">
+    
+    <!-- Google Fonts (Cairo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Flatpickr CSS (for date/time picker) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
+</head>
+<body class="light-mode"> <!-- Default mode -->
+
+    <!-- Header (نفس الهيدر المستخدم في الصفحات الأخرى) -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Yalla Clean <i class="fas fa-car-side"></i></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#hero"><i class="fas fa-home nav-icon"></i>الرئيسية</a></li>
+                    <li><a href="services.html"><i class="fas fa-concierge-bell nav-icon"></i>خدماتنا</a></li>
+                    <li><a href="index.html#how-it-works"><i class="fas fa-cogs nav-icon"></i>كيف نعمل</a></li>
+                    <li><a href="index.html#testimonials"><i class="fas fa-comments nav-icon"></i>آراء العملاء</a></li>
+                    <li><a href="contact.html"><i class="fas fa-phone-alt nav-icon"></i>اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="تبديل الوضع">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="booking.html" class="btn btn-primary btn-book-header active">احجز الآن</a> <!-- جعل زر الحجز نشطًا هنا -->
+            </div>
+            <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header for Booking -->
+    <section class="page-header">
+        <div class="container">
+            <h1>إتمام الحجز</h1>
+            <p>خطوات قليلة تفصلك عن سيارة نظيفة ولامعة. يرجى ملء التفاصيل التالية.</p>
+        </div>
+    </section>
+
+    <!-- Booking Page Content -->
+    <main class="booking-page-content section-padding">
+        <div class="container">
+            <form id="bookingForm" action="YOUR_SERVER_SIDE_BOOKING_SCRIPT_URL" method="POST">
+                <div class="booking-grid">
+                    <!-- Left Column: Service Details, Personal Info, Location -->
+                    <div class="booking-details-column">
+                        <h2 class="booking-section-title">1. تفاصيل الخدمة والسيارة</h2>
+                        <div id="selectedServiceInfo" class="selected-service-summary animate-on-scroll">
+                            <!-- سيتم ملء هذه المنطقة بواسطة JavaScript -->
+                            <p>جاري تحميل تفاصيل الخدمة...</p>
+                        </div>
+
+                        <div class="form-group animate-on-scroll">
+                            <label for="vehicleTypeBooking">نوع السيارة:</label>
+                            <select id="vehicleTypeBooking" name="vehicle_type" required>
+                                <option value="sedan">سيدان / هاتشباك</option>
+                                <option value="suv">SUV / 4x4</option>
+                                <option value="pickup">بيك أب / شاحنة صغيرة</option>
+                                <option value="van">فان / ميني باص</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group animate-on-scroll">
+                            <label for="additionalServices">خدمات إضافية (اختياري):</label>
+                            <div id="additionalServicesCheckboxes">
+                                <!-- سيتم ملء هذه المنطقة بواسطة JavaScript بخدمات إضافية متاحة -->
+                                <label class="checkbox-label"><input type="checkbox" name="addons[]" value="polish"> تلميع الهيكل (واكس) (+<span class="addon-price" data-addon-price="500">500</span> دج)</label>
+                                <label class="checkbox-label"><input type="checkbox" name="addons[]" value="engine_clean"> تنظيف المحرك (+<span class="addon-price" data-addon-price="800">800</span> دج)</label>
+                                <label class="checkbox-label"><input type="checkbox" name="addons[]" value="ac_sanitize"> تعقيم المكيف (+<span class="addon-price" data-addon-price="600">600</span> دج)</label>
+                            </div>
+                        </div>
+
+                        <hr class="booking-divider">
+
+                        <h2 class="booking-section-title">2. معلوماتك الشخصية</h2>
+                        <div class="form-group animate-on-scroll">
+                            <label for="customerName">الاسم الكامل<span class="required">*</span></label>
+                            <input type="text" id="customerName" name="customer_name" required placeholder="مثال: علي بن محمد">
+                        </div>
+                        <div class="form-group animate-on-scroll">
+                            <label for="customerPhone">رقم الهاتف<span class="required">*</span></label>
+                            <input type="tel" id="customerPhone" name="customer_phone" required placeholder="+213 XXXXXXXXX" pattern="^\+213[0-9]{9}$">
+                            <small>مثال: +213612345678 أو +213712345678</small>
+                        </div>
+                        <div class="form-group animate-on-scroll">
+                            <label for="customerEmail">البريد الإلكتروني (اختياري)</label>
+                            <input type="email" id="customerEmail" name="customer_email" placeholder="example@domain.com">
+                        </div>
+
+                        <hr class="booking-divider">
+                        
+                        <h2 class="booking-section-title">3. الموقع والوقت</h2>
+                        <div class="form-group animate-on-scroll">
+                            <label for="customerAddress">العنوان بالتفصيل<span class="required">*</span></label>
+                            <textarea id="customerAddress" name="customer_address" rows="3" required placeholder="مثال: حي النصر، شارع الحرية، رقم البناية 15، الطابق 2، الشقة 4، بالقرب من..."></textarea>
+                        </div>
+                        <div class="form-group animate-on-scroll">
+                            <label>تحديد الموقع على الخريطة (اختياري ولكن موصى به):</label>
+                            <div id="mapBooking" class="booking-map-container">
+                                <!-- سيتم تهيئة الخريطة هنا بواسطة JavaScript -->
+                            </div>
+                            <input type="hidden" id="customerLatitude" name="customer_latitude">
+                            <input type="hidden" id="customerLongitude" name="customer_longitude">
+                            <small>اسحب العلامة لتحديد موقعك بدقة، أو ابحث عن عنوانك.</small>
+                        </div>
+                        <div class="form-group animate-on-scroll">
+                            <label for="bookingDateTime">التاريخ والوقت المفضل<span class="required">*</span></label>
+                            <input type="text" id="bookingDateTime" name="booking_datetime" required placeholder="اختر التاريخ والوقت">
+                        </div>
+                         <div class="form-group animate-on-scroll">
+                            <label for="customerNotes">ملاحظات إضافية (اختياري)</label>
+                            <textarea id="customerNotes" name="customer_notes" rows="3" placeholder="أي تفاصيل إضافية تود إخبارنا بها عن سيارتك أو موقعك..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Price Summary, Payment -->
+                    <div class="booking-summary-column">
+                        <div class="price-summary-card sticky-summary animate-on-scroll">
+                            <h2 class="booking-section-title">ملخص الطلب والتكلفة</h2>
+                            <div id="priceBreakdown">
+                                <p><strong>الخدمة الأساسية:</strong> <span id="baseServiceName">--</span> - <span id="baseServicePrice">0</span> دج</p>
+                                <p><strong>نوع السيارة:</strong> <span id="vehicleTypeName">--</span></p>
+                                <div id="addonsSummary">
+                                    <p><strong>الخدمات الإضافية:</strong></p>
+                                    <ul id="selectedAddonsList">
+                                        <li>لا توجد خدمات إضافية</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr>
+                            <p class="total-price"><strong>الإجمالي التقديري:</strong> <span id="totalBookingPrice">0</span> دج</p>
+                            <p class="price-notice-summary">سيتم تأكيد السعر النهائي عند وصول فريقنا وقد يختلف قليلاً بناءً على حالة السيارة الفعلية.</p>
+                            
+                            <div class="payment-info">
+                                <h4>طريقة الدفع</h4>
+                                <p><i class="fas fa-money-bill-wave"></i> الدفع نقدًا عند اكتمال الخدمة.</p>
+                                <!-- يمكن إضافة طرق دفع أخرى هنا مستقبلاً -->
+                            </div>
+                            
+                            <button type="submit" id="confirmBookingBtn" class="btn btn-primary btn-block btn-lg">تأكيد الحجز <i class="fas fa-check-circle"></i></button>
+                            <div id="bookingFormStatus" class="form-status"></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer (نفس الفوتر المستخدم في الصفحات الأخرى) -->
+    <footer>
+        <!-- ... محتوى الفوتر ... -->
+    </footer>
+
+    <!-- Flatpickr JS (for date/time picker) -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script> <!-- Arabic localization for Flatpickr -->
+    
+  <!-- Google Maps API (استبدل YOUR_API_KEY بمفتاحك الخاص) -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initBookingPageMap"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

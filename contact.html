@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - Yalla Clean</title>
+    <meta name="description" content="تواصل مع فريق Yalla Clean للاستفسارات، الحجوزات، أو لتقديم ملاحظاتك. تجد هنا معلومات الاتصال، الخريطة، ونموذج المراسلة.">
+    
+    <!-- Google Fonts (Cairo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="contact-style.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
+</head>
+<body class="light-mode"> <!-- Default mode -->
+
+    <!-- Header (نفس الهيدر المستخدم في الصفحات الأخرى) -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Yalla Clean <i class="fas fa-car-side"></i></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#hero"><i class="fas fa-home nav-icon"></i>الرئيسية</a></li>
+                    <li><a href="services.html"><i class="fas fa-concierge-bell nav-icon"></i>خدماتنا</a></li>
+                    <li><a href="index.html#how-it-works"><i class="fas fa-cogs nav-icon"></i>كيف نعمل</a></li>
+                    <li><a href="index.html#testimonials"><i class="fas fa-comments nav-icon"></i>آراء العملاء</a></li>
+                    <li><a href="contact.html" class="active"><i class="fas fa-phone-alt nav-icon"></i>اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="تبديل الوضع">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="booking.html" class="btn btn-primary btn-book-header">احجز الآن</a>
+            </div>
+            <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header for Contact -->
+    <section class="page-header">
+        <div class="container">
+            <h1>تواصل معنا</h1>
+            <p>يسعدنا تلقي استفساراتكم وملاحظاتكم. فريقنا جاهز لمساعدتكم!</p>
+        </div>
+    </section>
+
+    <!-- Contact Page Content -->
+    <main class="contact-page-content section-padding">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Information Column -->
+                <div class="contact-info animate-on-scroll">
+                    <h3>معلومات الاتصال</h3>
+                    <p>لا تتردد في التواصل معنا عبر القنوات التالية. نحن هنا لخدمتك!</p>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone-volume fa-fw"></i>
+                        <div>
+                            <h4>الهاتف</h4>
+                            <p><a href="tel:+213772035502" class="contact-link-standalone">+213 772 035 502</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-envelope fa-fw"></i>
+                        <div>
+                            <h4>البريد الإلكتروني</h4>
+                            <p><a href="mailto:samibenlaalmi@gmail.com" class="contact-link-standalone">samibenlaalmi@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-clock fa-fw"></i>
+                        <div>
+                            <h4>ساعات العمل</h4>
+                            <p>السبت - الخميس: 09:00 صباحًا - 07:00 مساءً</p>
+                            <p>الجمعة: مغلق</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt fa-fw"></i>
+                        <div>
+                            <h4>نطاق الخدمة</h4>
+                            <p>نقدم خدماتنا المتنقلة في [اذكر المدن/المناطق الرئيسية هنا، مثال: الجزائر العاصمة، وهران، قسنطينة، والمناطق المجاورة].</p>
+                        </div>
+                    </div>
+
+                    <h4 class="social-title">تابعنا على</h4>
+                    <div class="social-links-contact">
+                        <a href="#" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div class="contact-form-container animate-on-scroll" style="animation-delay: 0.2s;">
+                    <h3>أرسل لنا رسالة</h3>
+                    <p>املأ النموذج أدناه وسيقوم أحد أعضاء فريقنا بالرد عليك في أقرب وقت ممكن.</p>
+                    <form id="contactForm" action="YOUR_SERVER_SIDE_SCRIPT_URL" method="POST">
+                        <div class="form-group">
+                            <label for="contact-name">الاسم الكامل<span class="required">*</span></label>
+                            <input type="text" id="contact-name" name="name" required placeholder="مثال: بلعلمي سامي">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">البريد الإلكتروني<span class="required">*</span></label>
+                            <input type="email" id="contact-email" name="email" required placeholder="samibenlaalmi@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">رقم الهاتف (اختياري)</label>
+                            <input type="tel" id="contact-phone" name="phone" placeholder="+213 772035502">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">الموضوع<span class="required">*</span></label>
+                            <input type="text" id="contact-subject" name="subject" required placeholder="استفسار عن خدمة...">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">رسالتك<span class="required">*</span></label>
+                            <textarea id="contact-message" name="message" rows="6" required placeholder="اكتب رسالتك هنا..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">إرسال الرسالة <i class="fas fa-paper-plane"></i></button>
+                        <div id="form-status-message" class="form-status"></div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <section id="map-location" class="animate-on-scroll" style="animation-delay: 0.4s;">
+                <h3>موقعنا (لتوضيح نطاق الخدمة الرئيسي)</h3>
+                <p>على الرغم من أننا خدمة متنقلة، يمكنك رؤية المنطقة الرئيسية التي ننطلق منها لخدمتكم.</p>
+                <div class="map-container">
+                    <!-- استبدل هذا بكود تضمين خريطة جوجل الخاص بك -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d204828.2955218681!2d3.0588996078125003!3d36.775340000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb28f3def3c23%3A0x12a7779b87778560!2sAlgiers!5e0!3m2!1sen!2sdz!4v1700000000000!5m2!1sen!2sdz" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="خريطة موقع Yalla Clean الرئيسي">
+                    </iframe>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer (نفس الفوتر المستخدم في الصفحات الأخرى) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Yalla Clean <i class="fas fa-car-side"></i></h3>
+                    <p>خدمة غسيل سيارات متنقلة ومحترفة في الجزائر. راحتك هي أولويتنا.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-info-circle nav-icon"></i>من نحن</a></li>
+                        <li><a href="services.html"><i class="fas fa-concierge-bell nav-icon"></i>خدماتنا</a></li>
+                        <li><a href="faq.html"><i class="fas fa-question-circle nav-icon"></i>الأسئلة الشائعة</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-shield-alt nav-icon"></i>سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>تواصل معنا</h4>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+213772035502" class="contact-link">+213 772 035 502</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:samibenlaalmi@gmail.com" class="contact-link">samibenlaalmi@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> نخدم مختلف مناطق الجزائر</p>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">© <span id="currentYear"></span> Yalla Clean. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- إذا كنت ستستخدم Google Maps API بشكل مباشر للتحكم بالخريطة، أضف رابط السكريبت هنا -->
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script> -->
+</body>
+</html>
